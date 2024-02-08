@@ -186,6 +186,7 @@ int main()
 		printf("\t 1 - Registrar Nomes \n");
 		printf("\t 2 - Consultar Nomes \n");
 		printf("\t 3 - Deletar Nomes \n");
+		printf("\t 4 - Fechar o sistema \n");
 			//Fim do Menu Inicial
 			
 		printf("Opcão: ");
@@ -210,6 +211,12 @@ int main()
 			case 3:
 			cabecalho();
 			deletar();
+			break;
+			
+			case 4:
+			cabecalho();
+			printf("<<<Obrigado por utilizar o sistema>>> \n\n");
+			return 0;
 			break;
 						
 			default:
