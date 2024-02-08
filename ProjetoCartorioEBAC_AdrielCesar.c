@@ -45,8 +45,9 @@ int erronome()
 
 int registrar() //Funcao responsavel por cadastras os usuários no sistema
 {
+
 	setlocale(LC_ALL, "Portuguese"); //Definindo a linguagem
-	
+			
 	//início da criação de variaveis / string
 	char arquivo[40];
 	char cpf[40];
@@ -98,8 +99,8 @@ int registrar() //Funcao responsavel por cadastras os usuários no sistema
 	fprintf(file,cargo);
 	fprintf(file,"\n");
 	fclose(file);
-		
-	system("pause");
+
+	voltar1();
 }
 
 
@@ -131,7 +132,7 @@ int consultar()
 	}
 	fclose(file);
 	
-	system("pause");
+	voltar2();
 }
 
 int deletar()
@@ -160,18 +161,102 @@ int deletar()
 
 	fclose(file);
 
-	printf("\n\n");
 	remove(cpf);
 	
-	system("pause");
+	voltar3();
 }
 
+int voltar1()
+{
+	int op;
+	
+	printf("\n\n");
+	printf("Deseja registrar outro usuário?? Sim(1) Não(2) \n");
+	printf("Opção: ");
+	scanf("%d", &op);
+	
+	switch(op)
+	{
+		case 1:
+		system("cls");
+		cabecalho();
+		registrar();
+		break;
+		
+		case 2:
+		main();
+		break;
+		
+		default:
+		system("cls");
+		voltar1()
+		break;
+	}
+
+}
+
+int voltar2()
+{
+	int op;
+	
+	printf("\n\n");
+	printf("Deseja consultar outro usuário?? Sim(1) Não(2) \n");
+	printf("Opção: ");
+	scanf("%d", &op);
+	
+	switch(op)
+	{
+		case 1:
+		system("cls");
+		cabecalho();
+		consultar();
+		break;
+		
+		case 2:
+		main();
+		break;
+		
+		default:
+		system("cls");
+		voltar2()
+		break;
+	}
+
+}
+
+int voltar3()
+{
+	int op;
+	
+	printf("\n\n");
+	printf("Deseja deletar outro usuário?? Sim(1) Não(2) \n");
+	printf("Opção: ");
+	scanf("%d", &op);
+	
+	switch(op)
+	{
+		case 1:
+		system("cls");
+		cabecalho();
+		deletar();
+		break;
+		
+		case 2:
+		main();
+		break;
+		
+		default:
+		system("cls");
+		voltar3()
+		break;
+	}
+
+}
 
 int main()
 {
-	int opcao=0; //Definindo variáveis
-	int x=1;
-	for(x=1;x=1;)
+	int opcao; //Definindo variáveis
+
 	{
 		system("cls");//Limpar a tela
 		
@@ -221,6 +306,8 @@ int main()
 						
 			default:
 			erro();
+			main();
+			
 			break;
 			
 		}
