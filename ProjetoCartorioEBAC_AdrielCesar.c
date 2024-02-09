@@ -1,4 +1,3 @@
-
 #include <stdio.h> //biblioteca de comunicação com o usuário
 #include <stdlib.h> //biblioteca de alocação de espaço em memória
 #include <locale.h> //biblioteca de alocações de texto por região
@@ -39,7 +38,6 @@ int erronome()
 	printf("  ####  #  #  #  #  ####");
 	printf("\n");
 	printf("##Não foi possível localizar o CPF## \n\n");
-
 }
 
 
@@ -194,7 +192,7 @@ int voltar1()
 		break;
 		
 		case 2:
-		main();
+		menu();
 		break;
 		
 		default:
@@ -221,7 +219,7 @@ int voltar2()
 		break;
 		
 		case 2:
-		main();
+		menu();
 		break;
 		
 		default:
@@ -248,7 +246,7 @@ int voltar3()
 		break;
 		
 		case 2:
-		main();
+		menu();
 		break;
 		
 		default:
@@ -257,16 +255,13 @@ int voltar3()
 	}
 }
 
-int main()
+int menu() //Menu inicial
 {
 	int opcao; //Definindo variáveis
-	
+
 	system("cls");//Limpar a tela
 		
-	setlocale(LC_ALL, "Portuguese"); //Definindo a linguagem
-		
 		//Início do Menu Inicial
-		
 	cabecalho();
 	
 		//Opções
@@ -276,13 +271,13 @@ int main()
 	printf("\t 3 - Deletar Nomes \n");
 	printf("\t 4 - Fechar o sistema \n");
 		//Fim do Menu Inicial
-			
+		
 	printf("Opcão: ");
 	scanf("%d", &opcao);//Armazenando a escolha do usuário
-	
-			
+
+		
 	system("cls");//Limpar a tela
-	
+
 		//Inicío da seleção
 	switch(opcao)
 	{
@@ -290,12 +285,12 @@ int main()
 		cabecalho();
 		registrar();
 		break;
-			
+		
 		case 2:
 		cabecalho();
 		consultar();
 		break;
-			
+		
 		case 3:
 		cabecalho();
 		deletar();
@@ -311,5 +306,32 @@ int main()
 		erro();
 		main();
 		break;
-	}	//Fim da seleção			
+	}	//Fim da seleção	
+}
+
+int main()
+{
+	setlocale(LC_ALL, "Portuguese"); //Definindo a linguagem
+	
+	char pass[10]="a";
+	int comparacao;
+	
+	cabecalho();
+	printf("Login do administrador! \n\nDigite a senha: ");
+	scanf("%s",pass);
+
+	comparacao = strcmp(pass,"admin");
+	
+	if(comparacao == 0)
+	{
+		menu();			
+	}
+	
+	else
+	{
+		printf("!!!SENHA INCORRETA!!!\n");
+		system("pause");
+		system("cls");
+		main();
+	}
 }
